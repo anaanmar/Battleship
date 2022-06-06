@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Battleship</name>
+    </assembly>
+    <members>
+        <member name="M:Battleship.GraphQL.Mutation.createGame(Battleship.GraphQL.Games.CreateGameInput,Battleship.GameService.IService)">
+            <summary>
+            The main game setup
+            1- Create the game record if not exists 
+            2- Create the player and his board
+            3- add the player to the game
+            </summary>
+            <param name="input">includes the game name and the player name</param>
+            <returns>the game object includes the player list</returns>
+        </member>
+        <member name="M:Battleship.GraphQL.Mutation.addShipToPlayerBoard(Battleship.GraphQL.Ships.AddShipInput,Battleship.GameService.IService)">
+            <summary>
+            Add Ship to the player board
+            </summary>
+            <param name="input">includes the Ship details (name , width , AlignmentType , first square coordinates , the player id)</param>
+            <returns>the player object</returns>
+        </member>
+        <member name="M:Battleship.GraphQL.Mutation.attack(Battleship.GraphQL.Games.AttackInput,Battleship.GameService.IService)">
+            <summary>
+            Take an attack
+            </summary>
+            <param name="input">includes the game id and the target coordinates</param>
+            <returns>the hit status</returns>
+        </member>
+        <member name="M:Battleship.GraphQL.Query.getGame(System.String,Battleship.GameService.IService)">
+            <summary>
+            get the game by name
+            </summary>
+            <param name="name">game name</param>
+            <returns>game object</returns>
+        </member>
+        <member name="T:Battleship.Models.Game">
+            <summary>
+            Game details
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Game.Name">
+            <summary>
+            Game Name
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Game.NextTargetId">
+            <summary>
+            The id of the target player for the next attack
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Game.Players">
+            <summary>
+            Game players
+            </summary>
+        </member>
+        <member name="T:Battleship.Models.Player">
+            <summary>
+            Player Details
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Player.Name">
+            <summary>
+            Player name
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Player.HasLost">
+            <summary>
+            player lose if all his ships have been sunk.
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Ship.Name">
+            <summary>
+            Ship's name
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Ship.Width">
+            <summary>
+            Number of squares the ship needs on the game board
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Ship.Hits">
+            <summary>
+            Number of hits
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Ship.AlignmentType">
+            <summary>
+            Alignment type (vertical or horizontal)
+            </summary>
+        </member>
+        <member name="P:Battleship.Models.Ship.IsSunk">
+            <summary>
+            Ship is sunk if it has been hit on all the squares it occupies
+            </summary>
+        </member>
+    </members>
+</doc>
